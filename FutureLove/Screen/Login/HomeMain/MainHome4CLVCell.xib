@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="21507" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_12" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21505"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="gTV-IL-0wX" customClass="MainHome4CLVCell" customModule="FutureLove" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="573" height="1832"/>
+            <autoresizingMask key="autoresizingMask"/>
+            <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                <rect key="frame" x="0.0" y="0.0" width="573" height="1832"/>
+                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                <subviews>
+                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="JumpStartYour" translatesAutoresizingMaskIntoConstraints="NO" id="GxU-Pw-lE2">
+                        <rect key="frame" x="125" y="10" width="323" height="83"/>
+                    </imageView>
+                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="so1" translatesAutoresizingMaskIntoConstraints="NO" id="4VM-PF-PlV">
+                        <rect key="frame" x="113" y="103" width="156" height="112"/>
+                    </imageView>
+                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="so2" translatesAutoresizingMaskIntoConstraints="NO" id="goc-8U-Dnd">
+                        <rect key="frame" x="304" y="103" width="156" height="112"/>
+                    </imageView>
+                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="so3" translatesAutoresizingMaskIntoConstraints="NO" id="IOM-n8-Ub9">
+                        <rect key="frame" x="114" y="255" width="155" height="112"/>
+                    </imageView>
+                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="so4" translatesAutoresizingMaskIntoConstraints="NO" id="DNG-xN-rAz">
+                        <rect key="frame" x="304" y="255" width="156" height="112"/>
+                    </imageView>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="." textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tPY-sL-WET">
+                        <rect key="frame" x="284" y="103" width="5" height="100"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="100" id="ssZ-AY-POa"/>
+                        </constraints>
+                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                        <nil key="textColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="SayGoodbye" translatesAutoresizingMaskIntoConstraints="NO" id="TJj-XZ-mYD">
+                        <rect key="frame" x="139.66666666666663" y="387" width="294" height="81"/>
+                    </imageView>
+                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="wedding-photo" translatesAutoresizingMaskIntoConstraints="NO" id="PhO-xd-AVx">
+                        <rect key="frame" x="106.66666666666669" y="478" width="360" height="654"/>
+                    </imageView>
+                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="wedding-photo2" translatesAutoresizingMaskIntoConstraints="NO" id="wmN-hx-PDY">
+                        <rect key="frame" x="106.66666666666669" y="1132" width="360" height="654"/>
+                    </imageView>
+                </subviews>
+            </view>
+            <viewLayoutGuide key="safeArea" id="ZTg-uK-7eu"/>
+            <constraints>
+                <constraint firstItem="IOM-n8-Ub9" firstAttribute="top" secondItem="4VM-PF-PlV" secondAttribute="bottom" constant="40" id="1lP-sP-oN3"/>
+                <constraint firstItem="goc-8U-Dnd" firstAttribute="top" secondItem="GxU-Pw-lE2" secondAttribute="bottom" constant="10" id="56p-iE-9AU"/>
+                <constraint firstItem="goc-8U-Dnd" firstAttribute="leading" secondItem="tPY-sL-WET" secondAttribute="leading" constant="20" id="8UP-gZ-vlg"/>
+                <constraint firstItem="tPY-sL-WET" firstAttribute="centerX" secondItem="ZTg-uK-7eu" secondAttribute="centerX" id="8WD-oz-Vwi"/>
+                <constraint firstItem="DNG-xN-rAz" firstAttribute="top" secondItem="goc-8U-Dnd" secondAttribute="bottom" constant="40" id="9gs-Ly-QKe"/>
+                <constraint firstItem="PhO-xd-AVx" firstAttribute="centerX" secondItem="ZTg-uK-7eu" secondAttribute="centerX" id="ABj-c8-0l5"/>
+                <constraint firstItem="TJj-XZ-mYD" firstAttribute="centerX" secondItem="ZTg-uK-7eu" secondAttribute="centerX" id="EDp-DZ-yCh"/>
+                <constraint firstItem="GxU-Pw-lE2" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" constant="10" id="Hs8-KO-NyG"/>
+                <constraint firstItem="GxU-Pw-lE2" firstAttribute="centerX" secondItem="ZTg-uK-7eu" secondAttribute="centerX" id="K7u-Vv-fPe"/>
+                <constraint firstItem="wmN-hx-PDY" firstAttribute="centerX" secondItem="ZTg-uK-7eu" secondAttribute="centerX" id="L3j-ny-vSZ"/>
+                <constraint firstItem="PhO-xd-AVx" firstAttribute="top" secondItem="TJj-XZ-mYD" secondAttribute="bottom" constant="10" id="NzC-VD-VKi"/>
+                <constraint firstItem="IOM-n8-Ub9" firstAttribute="trailing" secondItem="tPY-sL-WET" secondAttribute="trailing" constant="-20" id="Zs4-me-jph"/>
+                <constraint firstItem="4VM-PF-PlV" firstAttribute="trailing" secondItem="tPY-sL-WET" secondAttribute="trailing" constant="-20" id="fA8-uH-9xZ"/>
+                <constraint firstItem="wmN-hx-PDY" firstAttribute="top" secondItem="PhO-xd-AVx" secondAttribute="bottom" id="hUi-j3-oXK"/>
+                <constraint firstItem="TJj-XZ-mYD" firstAttribute="top" secondItem="IOM-n8-Ub9" secondAttribute="bottom" constant="20" id="i88-xQ-TLA"/>
+                <constraint firstItem="tPY-sL-WET" firstAttribute="top" secondItem="GxU-Pw-lE2" secondAttribute="bottom" constant="10" id="iM7-m0-F7M"/>
+                <constraint firstItem="4VM-PF-PlV" firstAttribute="top" secondItem="GxU-Pw-lE2" secondAttribute="bottom" constant="10" id="tfH-qh-vXp"/>
+                <constraint firstItem="DNG-xN-rAz" firstAttribute="leading" secondItem="tPY-sL-WET" secondAttribute="leading" constant="20" id="xkS-vx-KHt"/>
+            </constraints>
+            <size key="customSize" width="573" height="1832"/>
+            <connections>
+                <outlet property="labelName" destination="tPY-sL-WET" id="8Q5-YK-UZS"/>
+            </connections>
+            <point key="canvasLocation" x="460.30534351145036" y="469.0140845070423"/>
+        </collectionViewCell>
+    </objects>
+    <resources>
+        <image name="JumpStartYour" width="323" height="83"/>
+        <image name="SayGoodbye" width="294" height="81"/>
+        <image name="so1" width="156" height="112"/>
+        <image name="so2" width="156" height="112"/>
+        <image name="so3" width="155" height="112"/>
+        <image name="so4" width="156" height="112"/>
+        <image name="wedding-photo" width="360" height="654"/>
+        <image name="wedding-photo2" width="360" height="654"/>
+    </resources>
+</document>

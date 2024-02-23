@@ -1,0 +1,6 @@
+framework module Pods_FutureLove {
+  umbrella header "Pods-FutureLove-umbrella.h"
+
+  export *
+  module * { export * }
+}

@@ -1,0 +1,52 @@
+PODS:
+  - Alamofire (5.8.1)
+  - DeviceKit (5.2.2)
+  - ImageViewer.swift (3.3.8)
+  - ImageViewer.swift/Fetcher (3.3.8):
+    - SDWebImage
+  - Kingfisher (7.11.0)
+  - SDWebImage (5.18.11):
+    - SDWebImage/Core (= 5.18.11)
+  - SDWebImage/Core (5.18.11)
+  - SETabView (2.0.0)
+  - SnapKit (5.6.0)
+  - SwiftKeychainWrapper (4.0.1)
+  - Toast-Swift (5.1.0)
+
+DEPENDENCIES:
+  - Alamofire
+  - DeviceKit
+  - ImageViewer.swift
+  - ImageViewer.swift/Fetcher
+  - Kingfisher
+  - SETabView
+  - SnapKit
+  - SwiftKeychainWrapper
+  - Toast-Swift
+
+SPEC REPOS:
+  trunk:
+    - Alamofire
+    - DeviceKit
+    - ImageViewer.swift
+    - Kingfisher
+    - SDWebImage
+    - SETabView
+    - SnapKit
+    - SwiftKeychainWrapper
+    - Toast-Swift
+
+SPEC CHECKSUMS:
+  Alamofire: 3ca42e259043ee0dc5c0cdd76c4bc568b8e42af7
+  DeviceKit: e36aaf2a0d142ef0b4fac2007649a4414af234be
+  ImageViewer.swift: 284cd8127d31af8e5938674fb9f8e695a4cdf6c6
+  Kingfisher: b9c985d864d43515f404f1ef4a8ce7d802ace3ac
+  SDWebImage: a3ba0b8faac7228c3c8eadd1a55c9c9fe5e16457
+  SETabView: 20a3418b1bc61b36d7f6fb9195f1ebb0907bdf35
+  SnapKit: e01d52ebb8ddbc333eefe2132acf85c8227d9c25
+  SwiftKeychainWrapper: 807ba1d63c33a7d0613288512399cd1eda1e470c
+  Toast-Swift: dd369e68ee529f542c65bd0d0c6c50cd743cf6f2
+
+PODFILE CHECKSUM: 3c0270f46ecdfe3b80b0d6efcd951a9d9c841503
+
+COCOAPODS: 1.14.3
