@@ -45,7 +45,7 @@ class MakePhotoWeddingVC: UIViewController, UIImagePickerControllerDelegate, UIN
     var linkNu : String = ""
     var list_folder:String = ""
 
-    var menuOptions: [String] = ["List Image Swapped", "Swap Video", "Baby Gen"]
+    var menuOptions: [String] = ["List Image Swapped", "Swap Video", "List Video Swapped", "Profile"]
     @objc func showMenu() {
         // Hiển thị menu chọn tính năng
 
@@ -69,6 +69,22 @@ class MakePhotoWeddingVC: UIViewController, UIImagePickerControllerDelegate, UIN
                     self.present(nextViewController, animated: true, completion: nil)
                     print("Done")
                 }
+            case "List Video Swapped":
+                if let nextViewController = self.storyboard?.instantiateViewController(withIdentifier: "ResultVideoVC") as? ResultVideoVC {
+                    // Present view controller
+                    nextViewController.modalPresentationStyle = .fullScreen
+                    self.present(nextViewController, animated: true, completion: nil)
+                    print("Done")
+                }
+            case "Profile":
+                if let nextViewController = self.storyboard?.instantiateViewController(withIdentifier: "ProfileController") as? ProfileController {
+                    // Present view controller
+                    nextViewController.modalPresentationStyle = .fullScreen
+                    self.present(nextViewController, animated: true, completion: nil)
+                    print("Done")
+
+                }
+                
             default:
                 break
         }

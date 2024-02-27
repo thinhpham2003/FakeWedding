@@ -15,6 +15,11 @@
 		8530EBD92B8851EC00DE1399 /* CellVideo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8530EBD72B8851EC00DE1399 /* CellVideo.swift */; };
 		8530EBDA2B8851EC00DE1399 /* CellVideo.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8530EBD82B8851EC00DE1399 /* CellVideo.xib */; };
 		8530EBDE2B88972B00DE1399 /* UploadVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8530EBDD2B88972B00DE1399 /* UploadVC.swift */; };
+		8530EBE12B88F44800DE1399 /* ResultVideoVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8530EBE02B88F44800DE1399 /* ResultVideoVC.swift */; };
+		8530EBE42B88F46C00DE1399 /* CellResultVideo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8530EBE22B88F46C00DE1399 /* CellResultVideo.swift */; };
+		8530EBE52B88F46C00DE1399 /* CellResultVideo.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8530EBE32B88F46C00DE1399 /* CellResultVideo.xib */; };
+		858410872B898BC90000423D /* VideoResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = 858410862B898BC90000423D /* VideoResult.swift */; };
+		8584108C2B8D84F80000423D /* ProfileVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8584108B2B8D84F80000423D /* ProfileVC.swift */; };
 		BD2FDA592B5E4FE000C39CD5 /* ProfileController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD2FDA582B5E4FE000C39CD5 /* ProfileController.swift */; };
 		BD5CBE3E2B5C18AB0070B7C2 /* Profile.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BD5CBE3D2B5C18AB0070B7C2 /* Profile.storyboard */; };
 		BD5E71332B4697EF0026A8AC /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD5E71322B4697EF0026A8AC /* AppDelegate.swift */; };
@@ -107,6 +112,11 @@
 		8530EBD72B8851EC00DE1399 /* CellVideo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CellVideo.swift; sourceTree = "<group>"; };
 		8530EBD82B8851EC00DE1399 /* CellVideo.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CellVideo.xib; sourceTree = "<group>"; };
 		8530EBDD2B88972B00DE1399 /* UploadVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UploadVC.swift; sourceTree = "<group>"; };
+		8530EBE02B88F44800DE1399 /* ResultVideoVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResultVideoVC.swift; sourceTree = "<group>"; };
+		8530EBE22B88F46C00DE1399 /* CellResultVideo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CellResultVideo.swift; sourceTree = "<group>"; };
+		8530EBE32B88F46C00DE1399 /* CellResultVideo.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CellResultVideo.xib; sourceTree = "<group>"; };
+		858410862B898BC90000423D /* VideoResult.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoResult.swift; sourceTree = "<group>"; };
+		8584108B2B8D84F80000423D /* ProfileVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileVC.swift; sourceTree = "<group>"; };
 		86C773A6791DF4843F4B138F /* Pods_FutureLove.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_FutureLove.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		BD2FDA582B5E4FE000C39CD5 /* ProfileController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileController.swift; sourceTree = "<group>"; };
 		BD5CBE3D2B5C18AB0070B7C2 /* Profile.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Profile.storyboard; sourceTree = "<group>"; };
@@ -259,6 +269,17 @@
 			path = Upload;
 			sourceTree = "<group>";
 		};
+		8530EBDF2B88F3C300DE1399 /* ResultVD */ = {
+			isa = PBXGroup;
+			children = (
+				8530EBE02B88F44800DE1399 /* ResultVideoVC.swift */,
+				8530EBE22B88F46C00DE1399 /* CellResultVideo.swift */,
+				8530EBE32B88F46C00DE1399 /* CellResultVideo.xib */,
+				858410862B898BC90000423D /* VideoResult.swift */,
+			);
+			path = ResultVD;
+			sourceTree = "<group>";
+		};
 		B34F09C70760A8EAE8B2D141 /* Pods */ = {
 			isa = PBXGroup;
 			children = (
@@ -273,6 +294,7 @@
 			children = (
 				BD5CBE3D2B5C18AB0070B7C2 /* Profile.storyboard */,
 				BD2FDA582B5E4FE000C39CD5 /* ProfileController.swift */,
+				8584108B2B8D84F80000423D /* ProfileVC.swift */,
 			);
 			path = Profile;
 			sourceTree = "<group>";
@@ -325,6 +347,7 @@
 		BD8A2AE12B4FA8B400217E0B /* Screen */ = {
 			isa = PBXGroup;
 			children = (
+				8530EBDF2B88F3C300DE1399 /* ResultVD */,
 				8530EBD42B87AB4600DE1399 /* SwapVideo */,
 				8530EBCD2B875F1300DE1399 /* Result */,
 				8530EBBF2B860A9B00DE1399 /* Model */,
@@ -616,6 +639,7 @@
 				C08C544C2B7B4E89002DF31C /* DetailHowToVC.xib in Resources */,
 				C08593662B79C70100C1204D /* CategoiesItemCLVCell.xib in Resources */,
 				C08C543F2B7B2EA5002DF31C /* ListImageCLVCell.xib in Resources */,
+				8530EBE52B88F46C00DE1399 /* CellResultVideo.xib in Resources */,
 				C00A9E622B71E72300761574 /* MainHome4CLVCell.xib in Resources */,
 				C01FF9DD2B71332300F6A7B6 /* MainHome1CLVCell.xib in Resources */,
 				8530EBDA2B8851EC00DE1399 /* CellVideo.xib in Resources */,
@@ -689,11 +713,15 @@
 				C0A08FAF2B73E8E300ADE9ED /* Data+Helpers.swift in Sources */,
 				BD96BEEC2B55288500BD7D2B /* LoginModel.swift in Sources */,
 				C0A08FAE2B73E8E300ADE9ED /* MultipartForm.swift in Sources */,
+				8584108C2B8D84F80000423D /* ProfileVC.swift in Sources */,
 				BD96BED82B5522CA00BD7D2B /* Enviroment.swift in Sources */,
 				BD96BEE42B55257400BD7D2B /* BaseViewController.swift in Sources */,
 				BD96BED22B55213B00BD7D2B /* BaseService.swift in Sources */,
 				BD96BEEE2B5528F200BD7D2B /* LoginServiceConfiguration.swift in Sources */,
+				858410872B898BC90000423D /* VideoResult.swift in Sources */,
 				BD98EE252B58C8260040752E /* APIKeyIMGBB.swift in Sources */,
+				8530EBE12B88F44800DE1399 /* ResultVideoVC.swift in Sources */,
+				8530EBE42B88F46C00DE1399 /* CellResultVideo.swift in Sources */,
 				C01FF9E02B713CFA00F6A7B6 /* MainHome2CLVCell.swift in Sources */,
 				BD96BEF92B552E8F00BD7D2B /* Int+Extension.swift in Sources */,
 				8530EBDE2B88972B00DE1399 /* UploadVC.swift in Sources */,
@@ -897,6 +925,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 64PJC6BRWB;
 				ENABLE_USER_SCRIPT_SANDBOXING = NO;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = FutureLove/Info.plist;
@@ -927,6 +956,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 64PJC6BRWB;
 				ENABLE_USER_SCRIPT_SANDBOXING = NO;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = FutureLove/Info.plist;

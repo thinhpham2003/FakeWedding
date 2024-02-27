@@ -98,7 +98,7 @@ struct ListImageSwaped: Codable {
  },
  */
 struct VideoTemplate: Codable {
-    var id: String?
+    var id: Int?
     var link_video: String?
     var noidung: String?
     var age_video: String?
@@ -107,7 +107,7 @@ struct VideoTemplate: Codable {
     var chung_toc: String?
     mutating func initLoad(_ json:[String:Any]) -> VideoTemplate {
 
-        if let temp = json["id"] as? String { id = temp }
+        if let temp = json["id"] as? Int { id = temp }
         if let temp = json["link_video"] as? String { link_video = temp }
         if let temp = json["noidung"] as? String { noidung = temp }
         if let temp = json["age_video"] as? String { age_video = temp }
@@ -117,4 +117,89 @@ struct VideoTemplate: Codable {
 
         return self
     }
+}
+
+/*
+ "list_sukien_video": [
+ {
+ "id": 70,
+ "id_saved": "755389124802",
+ "link_video_goc": "/media/thinkdiff/Seagate Hub/server_wedding/video_detal/VIDEO_WD/VIDEOWD2/VIDEOWD2.mp4",
+ "link_image": "/var/www/build_futurelove/image/image_sknoel/album_1/image_40.jpg",
+ "link_video_da_swap": "https://photo.fakewedding.online/image/image_user/234/wedding_video/7508_375967993355/user_234_95928_2.mp4",
+ "id_user": "234",
+ "thoigian_sukien": "2024-02-20, 17:00:17"
+ },
+ */
+
+struct VideoSwapped: Codable {
+    var id: Int?
+    var id_saved: String?
+    var link_video_goc: String?
+    var link_image: String?
+    var link_video_da_swap: String?
+    var id_user: String?
+    var thoigian_sukien: String?
+    mutating func initLoad(_ json:[String:Any]) -> VideoSwapped {
+        if let temp = json["id"] as? Int { id = temp }
+        if let temp = json["id_saved"] as? String { id_saved = temp }
+        if let temp = json["link_video_goc"] as? String { link_video_goc = temp }
+        if let temp = json["link_image"] as? String { link_image = temp }
+        if let temp = json["link_video_da_swap"] as? String { link_video_da_swap = temp }
+        if let temp = json["id_user"] as? String { id_user = temp }
+        if let temp = json["thoigian_sukien"] as? String { thoigian_sukien = temp }
+        return self
+    }
+}
+
+struct SukienSwapVideo: Codable {
+    var id_saved: String?
+    var link_video_goc: String?
+    var link_image: String?
+    var link_vid_swap: String?
+    var thoigian_sukien: String?
+    var device_tao_vid: String?
+    var ip_tao_vid: String?
+    var id_user: Int?
+
+    mutating func initLoad(_ json:[String:Any]) -> SukienSwapVideo {
+        if let data = json["sukien_swap_video"] as? [String: Any] {
+            if let temp = data["id_saved"] as? String { id_saved = temp }
+            if let temp = data["link_video_goc"] as? String { link_video_goc = temp }
+            if let temp = data["link_image"] as? String { link_image = temp }
+            if let temp = data["link_vid_swap"] as? String { link_vid_swap = temp }
+            if let temp = data["thoigian_sukien"] as? String { thoigian_sukien = temp }
+            if let temp = data["device_tao_vid"] as? String { device_tao_vid = temp }
+            if let temp = data["ip_tao_vid"] as? String { ip_tao_vid = temp }
+            if let temp = data["id_user"] as? Int { id_user = temp }
+        }
+
+        return self
+    }
+}
+
+struct ProfileModel: Codable {
+    var count_comment: Int?
+    var count_sukien: Int?
+    var count_view : Int?
+    var device_register: String?
+    var email: String?
+    var id_user: Int?
+    var ip_register: String?
+    var link_avatar: String?
+    var user_name: String?
+    var ketqua: String?
+    mutating func initLoad(_ json:[String:Any]) ->ProfileModel{
+        if let temp = json["count_comment"] as? Int {count_comment = temp}
+        if let temp = json["count_sukien"] as? Int {count_sukien = temp}
+        if let temp = json["device_register"] as? String {device_register = temp}
+        if let temp = json["email"] as? String {email = temp}
+        if let temp = json["id_user"] as? Int {id_user = temp}
+        if let temp = json["ip_register"] as? String {ip_register = temp}
+        if let temp = json["link_avatar"] as? String {link_avatar = temp}
+        if let temp = json["user_name"] as? String {user_name = temp}
+        if let temp = json["ketqua"] as? String {ketqua = temp}
+        return self
+    }
+
 }

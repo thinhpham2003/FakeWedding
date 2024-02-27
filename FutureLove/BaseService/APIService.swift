@@ -972,6 +972,61 @@ class APIService:NSObject {
             }
         }
     }
+    func listVideoSwapped(id_user: Int, closure: @escaping (_ response: [VideoSwapped], _ error: Error?) -> Void) {
+        let linkUrl = "https://databaseswap.mangasocial.online/get/list_video_wedding/id_video_swap?id_user=\(id_user)"
+        requestJSON(linkUrl, param: nil, method: .GET, loading: true) { (data, error) in
+            var listVideoReturn : [VideoSwapped] = [VideoSwapped]()
+            if let data2 = data as? [String:Any]{
+                if let listTongToanBo =  data2["list_sukien_video"] as? [[String:Any]]{
+                    for item2 in listTongToanBo{
+                        var itemvideoAdd: VideoSwapped = VideoSwapped()
+                        itemvideoAdd = itemvideoAdd.initLoad(item2)
+                        listVideoReturn.append(itemvideoAdd)
+                    }
+                    closure(listVideoReturn,nil)
+                }
+            }else{
+                closure([VideoSwapped](),nil)
+            }
+        }
+    }
+
+
+    //https://videoswap.mangasocial.online/getdata/genvideo/swap/imagevid/wedding?device_them_su_kien=${userData.device_register}&ip_them_su_kien=${userData.ip_register}&id_user=${userData.id_user}&src_img=${src_res_1}&src_vid_path=${id}
+    func createVideoWedding(device_them_su_kien:String,id_video:String,ip_them_su_kien:String,id_user:String,link_img:String,closure: @escaping (_ response: SukienSwapVideo?, _ error: Error?) -> Void) {
+        print("Link img: \(link_img)")
+        let newString1 = link_img.replacingOccurrences(of: "\"", with: "", options: .literal, range: nil)
+        let StringNam = newString1.replacingOccurrences(of: "https://futurelove.online", with: "/var/www/build_futurelove")
+
+        if let devicePro = device_them_su_kien.urlEncoded{
+            requestJSON("https://videoswap.mangasocial.online/getdata/genvideo/swap/imagevid/wedding?device_them_su_kien=\(devicePro)&ip_them_su_kien=\(ip_them_su_kien)&id_user=\(id_user)&src_img=\(StringNam)&src_vid_path=\(id_video)", param: nil, method: .GET, loading: true) { (data, error) in
+                print("https://videoswap.mangasocial.online/getdata/genvideo/swap/imagevid/wedding?device_them_su_kien=\(devicePro)&ip_them_su_kien=\(ip_them_su_kien)&id_user=\(id_user)&src_img=\(StringNam)&src_vid_path=\(id_video)")
+                if let data = data as? [String:Any]{
+                    var itemAdd:SukienSwapVideo = SukienSwapVideo()
+                    itemAdd = itemAdd.initLoad(data)
+                    closure( itemAdd, nil)
+
+                }else{
+
+                    closure( SukienSwapVideo(), nil)
+                }
+            }
+        }
+    }
+
+
+    func getProfile(user: Int, closure: @escaping (_ response: ProfileModel?, _ error: Error?) -> Void) {
+        requestJSON("https://databaseswap.mangasocial.online/profile/\(user)", param: nil, method: .GET, loading: true) { (data, error) in
+            if let data2 = data as? [String:Any]{
+                var returnData: ProfileModel = ProfileModel()
+                returnData = returnData.initLoad(data2)
+                closure(returnData,nil)
+            }else{
+                closure(nil,nil)
+            }
+        }
+        closure(nil, nil)
+    }
 
 }
 

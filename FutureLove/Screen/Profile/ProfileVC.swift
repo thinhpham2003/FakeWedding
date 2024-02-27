@@ -1,27 +1,27 @@
 //
-//  ProfileController.swift
+//  ProfileVC.swift
 //  FutureLove
 //
-//  Created by Do Nang Cuong on 22/01/2024.
+//  Created by Phạm Quý Thịnh on 27/02/2024.
 //
 
 import UIKit
 
-class ProfileController: UIViewController, UITableViewDataSource, UITableViewDelegate{
+class ProfileVC: UIViewController, UITableViewDataSource, UITableViewDelegate{
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "mycellMenu", for: indexPath)
 
         cell.textLabel?.text = lstMenuProflie[indexPath.row]
         return cell
     }
-    
-    
-    
+
+
+
     let lstMenuProflie: [String] = ["Accout","Edit Profile"]
     @IBAction func btnMenuProfile(_ sender: UIButton) {
         self.TableViewProfile.isHidden = !self.TableViewProfile.isHidden
     }
-    
+
     @IBOutlet weak var TableViewProfile: UITableView!
     @IBOutlet weak var btnChonMenuProfile: UIButton!
     override func viewDidLoad() {
@@ -34,11 +34,12 @@ class ProfileController: UIViewController, UITableViewDataSource, UITableViewDel
         return 1
     }
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        
+
         return lstMenuProflie.count
     }
-    
 
-    
+
+
 
 }
+

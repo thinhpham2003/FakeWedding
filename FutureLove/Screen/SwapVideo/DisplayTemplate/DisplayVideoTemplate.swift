@@ -20,13 +20,15 @@ class DisplayVideoTemplate: UIViewController {
     }
     override func viewDidLoad() {
         super.viewDidLoad()
+        if let buttonback = buttonback {
+            buttonback.setTitle("", for: .normal)
+        }
         clvDisplayVideoTemplate.register(UINib(nibName: "CellVideo", bundle: nil), forCellWithReuseIdentifier: "CellVideo")
         APIService.shared.listTemplateVideoSwap { [weak self] videos, error in
             guard let self = self else { return }
             if let error = error {
                 print("Error fetching videos: \(error)")
             } else {
-                print(videos)
                 self.videos = videos
                 DispatchQueue.main.async {
                     self.clvDisplayVideoTemplate.reloadData()
@@ -35,41 +37,31 @@ class DisplayVideoTemplate: UIViewController {
         }
 
     }
+    
 
     func getVideoThumbnail(url: URL) -> UIImage? {
         //let url = url as URL
+        print(url)
         spinner.center = view.center
         view.addSubview(spinner)
         spinner.startAnimating()
-        let request = URLRequest(url: url)
-        let cache = URLCache.shared
-
-        if let cachedResponse = cache.cachedResponse(for: request), let image = UIImage(data: cachedResponse.data) {
-            return image
-        }
-
         let asset = AVAsset(url: url)
         let imageGenerator = AVAssetImageGenerator(asset: asset)
         imageGenerator.appliesPreferredTrackTransform = true
-        imageGenerator.maximumSize = CGSize(width: 250, height: 120)
 
         var time = asset.duration
         time.value = min(time.value, 2)
 
-        var image: UIImage?
-
         do {
             let cgImage = try imageGenerator.copyCGImage(at: time, actualTime: nil)
-            image = UIImage(cgImage: cgImage)
-        } catch { }
-
-        if let image = image, let data = image.pngData(), let response = HTTPURLResponse(url: url, statusCode: 200, httpVersion: nil, headerFields: nil) {
-            let cachedResponse = CachedURLResponse(response: response, data: data)
-            cache.storeCachedResponse(cachedResponse, for: request)
+            spinner.stopAnimating()
+            return UIImage(cgImage: cgImage)
+        } catch {
+            print(error.localizedDescription)
+            spinner.stopAnimating()
+            return nil
         }
 
-        return image
-        spinner.stopAnimating()
     }
 
 }
@@ -109,6 +101,7 @@ extension DisplayVideoTemplate: UICollectionViewDelegate, UICollectionViewDataSo
             nextViewController.modalPresentationStyle = .fullScreen
             if let link = video.link_video {
                 nextViewController.configureCell(with: URL(string: link))
+                nextViewController.videoSwap = video
                 self.present(nextViewController, animated: true, completion: nil)
                 print("Done")
             }
@@ -149,7 +142,7 @@ extension DisplayVideoTemplate: UICollectionViewDelegateFlowLayout{
         }
         var width = UIScreen.main.bounds.width/2
 
-        return CGSize(width: width - 5, height: width/4*3)
+        return CGSize(width: width/2 - 5, height: width/4*3)
 
     }
 

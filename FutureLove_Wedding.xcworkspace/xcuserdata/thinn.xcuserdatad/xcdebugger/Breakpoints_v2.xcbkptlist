@@ -3,4 +3,70 @@
    uuid = "C1A0A3A5-C37C-4F37-B041-F860E51EEDB7"
    type = "0"
    version = "2.0">
+   <Breakpoints>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "7A93F073-2BC9-4215-B83A-6730B63D7C91"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "FutureLove/BaseService/APIService.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "1004"
+            endingLineNumber = "1004"
+            landmarkName = "createVideoWedding(device_them_su_kien:id_video:ip_them_su_kien:id_user:link_img:closure:)"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "7A93F073-2BC9-4215-B83A-6730B63D7C91 - e4ca8df9fd4874ce"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "function signature specialization &lt;Arg[5] = Value Promoted from Box&gt; of closure #1 (Swift.Optional&lt;Any&gt;, Swift.Optional&lt;Swift.Error&gt;) -&gt; () in FutureLove.APIService.createVideoWedding(device_them_su_kien: Swift.String, id_video: Swift.String, ip_them_su_kien: Swift.String, id_user: Swift.String, link_img: Swift.String, closure: (Swift.Optional&lt;FutureLove.SukienSwapVideo&gt;, Swift.Optional&lt;Swift.Error&gt;) -&gt; ()) -&gt; ()"
+                  moduleName = "FutureLove"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/thinn/Desktop/COMPANY/fake-wedding-21-feb-2024-ban-ios/FutureLove/BaseService/APIService.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "1004"
+                  endingLineNumber = "1004"
+                  offsetFromSymbolStart = "1256">
+               </Location>
+               <Location
+                  uuid = "7A93F073-2BC9-4215-B83A-6730B63D7C91 - 7cb0ecc735d37f7"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 (Swift.Optional&lt;Any&gt;, Swift.Optional&lt;Swift.Error&gt;) -&gt; () in FutureLove.APIService.createVideoWedding(device_them_su_kien: Swift.String, id_video: Swift.String, ip_them_su_kien: Swift.String, id_user: Swift.String, link_img: Swift.String, closure: (Swift.Optional&lt;FutureLove.SukienSwapVideo&gt;, Swift.Optional&lt;Swift.Error&gt;) -&gt; ()) -&gt; ()"
+                  moduleName = "FutureLove"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/thinn/Desktop/COMPANY/fake-wedding-21-feb-2024-ban-ios/FutureLove/BaseService/APIService.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "1004"
+                  endingLineNumber = "1004"
+                  offsetFromSymbolStart = "1044">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "DBFBFFA5-4E12-4A50-A532-96C64C91AF9F"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "FutureLove/Screen/Model/Model.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "166"
+            endingLineNumber = "166"
+            landmarkName = "initLoad(_:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+   </Breakpoints>
 </Bucket>
