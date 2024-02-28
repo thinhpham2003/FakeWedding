@@ -151,23 +151,34 @@ struct VideoSwapped: Codable {
         return self
     }
 }
-
+/*
+ "sukien_video": {
+ "id_saved": "727978526180",
+ "link_video_goc": "/media/thinkdiff/Seagate Hub/server_wedding/video_detal/VIDEO_WD/VIDEOWD1/VIDEOWD1.mp4",
+ "link_image": "/var/www/build_futurelove/image/image_user/236/nam/236_nam_29449.jpg",
+ "link_vid_da_swap": "https://photo.fakewedding.online/image/image_user/236/wedding_video/232204_656007303248/user_236_94601_1.mp4",
+ "thoigian_sukien": "2024-02-28, 15:53:05",
+ "device_tao_vid": "Simulator (iPhone 15 Pro)",
+ "ip_tao_vid": "14.231.247.224",
+ "id_user": 236
+ }
+ */
 struct SukienSwapVideo: Codable {
     var id_saved: String?
     var link_video_goc: String?
     var link_image: String?
-    var link_vid_swap: String?
+    var link_vid_da_swap: String?
     var thoigian_sukien: String?
     var device_tao_vid: String?
     var ip_tao_vid: String?
     var id_user: Int?
 
     mutating func initLoad(_ json:[String:Any]) -> SukienSwapVideo {
-        if let data = json["sukien_swap_video"] as? [String: Any] {
+        if let data = json["sukien_video"] as? [String: Any] {
             if let temp = data["id_saved"] as? String { id_saved = temp }
             if let temp = data["link_video_goc"] as? String { link_video_goc = temp }
             if let temp = data["link_image"] as? String { link_image = temp }
-            if let temp = data["link_vid_swap"] as? String { link_vid_swap = temp }
+            if let temp = data["link_vid_da_swap"] as? String { link_vid_da_swap = temp }
             if let temp = data["thoigian_sukien"] as? String { thoigian_sukien = temp }
             if let temp = data["device_tao_vid"] as? String { device_tao_vid = temp }
             if let temp = data["ip_tao_vid"] as? String { ip_tao_vid = temp }
@@ -188,7 +199,6 @@ struct ProfileModel: Codable {
     var ip_register: String?
     var link_avatar: String?
     var user_name: String?
-    var ketqua: String?
     mutating func initLoad(_ json:[String:Any]) ->ProfileModel{
         if let temp = json["count_comment"] as? Int {count_comment = temp}
         if let temp = json["count_sukien"] as? Int {count_sukien = temp}
@@ -198,7 +208,6 @@ struct ProfileModel: Codable {
         if let temp = json["ip_register"] as? String {ip_register = temp}
         if let temp = json["link_avatar"] as? String {link_avatar = temp}
         if let temp = json["user_name"] as? String {user_name = temp}
-        if let temp = json["ketqua"] as? String {ketqua = temp}
         return self
     }
 

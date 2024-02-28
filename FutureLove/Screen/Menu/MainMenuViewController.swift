@@ -25,7 +25,7 @@ class MainMenuViewController: UIViewController, UITableViewDataSource, UITableVi
     }
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let storyboard = UIStoryboard(name: "Profile", bundle: nil)
-        if let vc = storyboard.instantiateViewController(identifier: "ProfileController") as? ProfileController{
+        if let vc = storyboard.instantiateViewController(identifier: "ProfileVC") as? ProfileVC{
             self.navigationController?.pushViewController(vc, animated: true)
             let selectedItem = lstMenu[indexPath.row]
             

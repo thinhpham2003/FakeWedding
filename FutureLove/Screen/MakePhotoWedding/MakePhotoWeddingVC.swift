@@ -77,7 +77,7 @@ class MakePhotoWeddingVC: UIViewController, UIImagePickerControllerDelegate, UIN
                     print("Done")
                 }
             case "Profile":
-                if let nextViewController = self.storyboard?.instantiateViewController(withIdentifier: "ProfileController") as? ProfileController {
+                if let nextViewController = self.storyboard?.instantiateViewController(withIdentifier: "ProfileVC") as? ProfileVC {
                     // Present view controller
                     nextViewController.modalPresentationStyle = .fullScreen
                     self.present(nextViewController, animated: true, completion: nil)

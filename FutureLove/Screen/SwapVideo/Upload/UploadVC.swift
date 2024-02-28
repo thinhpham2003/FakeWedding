@@ -65,7 +65,7 @@ class UploadVC: UIViewController, UIImagePickerControllerDelegate & UINavigation
                         if let nextViewController = self.storyboard?.instantiateViewController(withIdentifier: "VideoResult") as? VideoResult {
                             //nextViewController.imageLink = image.link_da_swap!
                             // Present view controller
-                            if let link = response.link_vid_swap, let url = URL(string: link){
+                            if let link = response.link_vid_da_swap, let url = URL(string: link){
                                 nextViewController.configureCell(with: url)
                             }
                             self.present(nextViewController, animated: true, completion: nil)

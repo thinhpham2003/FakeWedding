@@ -20,8 +20,6 @@
 		8530EBE52B88F46C00DE1399 /* CellResultVideo.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8530EBE32B88F46C00DE1399 /* CellResultVideo.xib */; };
 		858410872B898BC90000423D /* VideoResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = 858410862B898BC90000423D /* VideoResult.swift */; };
 		8584108C2B8D84F80000423D /* ProfileVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8584108B2B8D84F80000423D /* ProfileVC.swift */; };
-		BD2FDA592B5E4FE000C39CD5 /* ProfileController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD2FDA582B5E4FE000C39CD5 /* ProfileController.swift */; };
-		BD5CBE3E2B5C18AB0070B7C2 /* Profile.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BD5CBE3D2B5C18AB0070B7C2 /* Profile.storyboard */; };
 		BD5E71332B4697EF0026A8AC /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD5E71322B4697EF0026A8AC /* AppDelegate.swift */; };
 		BD5E71352B4697EF0026A8AC /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD5E71342B4697EF0026A8AC /* SceneDelegate.swift */; };
 		BD5E713A2B4697EF0026A8AC /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BD5E71382B4697EF0026A8AC /* Main.storyboard */; };
@@ -118,8 +116,6 @@
 		858410862B898BC90000423D /* VideoResult.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoResult.swift; sourceTree = "<group>"; };
 		8584108B2B8D84F80000423D /* ProfileVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileVC.swift; sourceTree = "<group>"; };
 		86C773A6791DF4843F4B138F /* Pods_FutureLove.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_FutureLove.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		BD2FDA582B5E4FE000C39CD5 /* ProfileController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileController.swift; sourceTree = "<group>"; };
-		BD5CBE3D2B5C18AB0070B7C2 /* Profile.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Profile.storyboard; sourceTree = "<group>"; };
 		BD5E712F2B4697EF0026A8AC /* FutureLove.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FutureLove.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		BD5E71322B4697EF0026A8AC /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		BD5E71342B4697EF0026A8AC /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -292,8 +288,6 @@
 		BD5CBE3C2B5C188A0070B7C2 /* Profile */ = {
 			isa = PBXGroup;
 			children = (
-				BD5CBE3D2B5C18AB0070B7C2 /* Profile.storyboard */,
-				BD2FDA582B5E4FE000C39CD5 /* ProfileController.swift */,
 				8584108B2B8D84F80000423D /* ProfileVC.swift */,
 			);
 			path = Profile;
@@ -631,7 +625,6 @@
 				C00A9E662B71FECF00761574 /* MainHome5CLVCell.xib in Resources */,
 				8530EBD12B875F5400DE1399 /* CellResult.xib in Resources */,
 				C00A9E6A2B7201E900761574 /* MainHome4Lan2.xib in Resources */,
-				BD5CBE3E2B5C18AB0070B7C2 /* Profile.storyboard in Resources */,
 				BD748A582B591BA2007961E9 /* Menu.storyboard in Resources */,
 				C00A9E5E2B71DE2400761574 /* MainHome3CLVCell.xib in Resources */,
 				C01FF9E12B713CFA00F6A7B6 /* MainHome2CLVCell.xib in Resources */,
@@ -772,7 +765,6 @@
 				BD98EE2C2B58C94F0040752E /* HomeModel.swift in Sources */,
 				C00A9E692B7201E900761574 /* MainHome4Lan2.swift in Sources */,
 				BD96BEFB2B552EB400BD7D2B /* Optional+Extension.swift in Sources */,
-				BD2FDA592B5E4FE000C39CD5 /* ProfileController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

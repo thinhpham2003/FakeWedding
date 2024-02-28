@@ -992,14 +992,15 @@ class APIService:NSObject {
     }
 
 
-    //https://videoswap.mangasocial.online/getdata/genvideo/swap/imagevid/wedding?device_them_su_kien=${userData.device_register}&ip_them_su_kien=${userData.ip_register}&id_user=${userData.id_user}&src_img=${src_res_1}&src_vid_path=${id}
+    //https://videoswap.mangasocial.online/getdata/genvideo/swap/imagevid/wedding?device_them_su_kien=Simulator%20%28iPhone%2015%20Pro%29&ip_them_su_kien=14.231.247.224&id_user=236&src_img=/var/www/build_futurelove/image/image_user/236/nam/236_nam_29449.jpg&src_vid_path=1
+    //https://videoswap.mangasocial.online/getdata/genvideo/swap/imagevid/wedding?device_them_su_kien=Simulator%20%28iPhone%2015%20Pro%29&ip_them_su_kien=113.178.49.22&id_user=236&src_img=/var/www/build_futurelove/image/image_user/236/nam/236_nam_82930.jpg&src_vid_path=1
     func createVideoWedding(device_them_su_kien:String,id_video:String,ip_them_su_kien:String,id_user:String,link_img:String,closure: @escaping (_ response: SukienSwapVideo?, _ error: Error?) -> Void) {
         print("Link img: \(link_img)")
         let newString1 = link_img.replacingOccurrences(of: "\"", with: "", options: .literal, range: nil)
         let StringNam = newString1.replacingOccurrences(of: "https://futurelove.online", with: "/var/www/build_futurelove")
 
         if let devicePro = device_them_su_kien.urlEncoded{
-            requestJSON("https://videoswap.mangasocial.online/getdata/genvideo/swap/imagevid/wedding?device_them_su_kien=\(devicePro)&ip_them_su_kien=\(ip_them_su_kien)&id_user=\(id_user)&src_img=\(StringNam)&src_vid_path=\(id_video)", param: nil, method: .GET, loading: true) { (data, error) in
+            requestTokenGhepDoi("https://videoswap.mangasocial.online/getdata/genvideo/swap/imagevid/wedding?device_them_su_kien=\(devicePro)&ip_them_su_kien=\(ip_them_su_kien)&id_user=\(id_user)&src_img=\(StringNam)&src_vid_path=\(id_video)","","", param: nil, method: .GET, loading: true) { (data, error) in
                 print("https://videoswap.mangasocial.online/getdata/genvideo/swap/imagevid/wedding?device_them_su_kien=\(devicePro)&ip_them_su_kien=\(ip_them_su_kien)&id_user=\(id_user)&src_img=\(StringNam)&src_vid_path=\(id_video)")
                 if let data = data as? [String:Any]{
                     var itemAdd:SukienSwapVideo = SukienSwapVideo()
