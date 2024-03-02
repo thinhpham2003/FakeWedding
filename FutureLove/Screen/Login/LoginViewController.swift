@@ -150,9 +150,14 @@ class LoginViewController: BaseViewController {
     }
     
     @IBAction func btnResetPass(_ sender: Any) {
-        self.navigationController?.pushViewController(FogotPassViewController(nibName: "FogotPassViewController", bundle: nil), animated: true)
+        if let nextViewController = self.storyboard?.instantiateViewController(withIdentifier: "FogotPassViewController") as? FogotPassViewController {
+            // Present view controller
+            nextViewController.modalPresentationStyle = .fullScreen
+            self.present(nextViewController, animated: true, completion: nil)
+            print("Done")
+        }
     }
-    
+
     @objc func tapLabelProvision(tap: UITapGestureRecognizer) {
         let vc = RegisterViewController(nibName: "RegisterViewController", bundle: nil)
         self.navigationController?.pushViewController(vc, animated: true)

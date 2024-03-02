@@ -1,30 +1,31 @@
 //
-//  FogotPassViewController.swift
+//  ResetPasswordVC.swift
 //  FutureLove
 //
-//  Created by TTH on 26/07/2023.
+//  Created by Phạm Quý Thịnh on 29/02/2024.
 //
 
 import UIKit
-import Toast_Swift
 
-class FogotPassViewController: BaseViewController {
-    
+class ResetPasswordVC: UIViewController {
+
     @IBOutlet weak var emailTextField: UITextField!
-    
+
     override func viewDidLoad() {
         super.viewDidLoad()
         self.navigationController?.isNavigationBarHidden = true
         hideKeyboardWhenTappedAround()
+
     }
-    
+
+
     @IBAction func backBtn(_ sender: Any) {
         self.navigationController?.popViewController(animated: false)
     }
-    
+
     @IBAction func resetPasswordBtn(_ sender: Any) {
         guard emailTextField.text != "" else {
-             self.view.makeToast("Email cannot be blank")
+            self.view.makeToast("Email cannot be blank")
             return
         }
         showCustomeIndicator()
@@ -36,12 +37,7 @@ class FogotPassViewController: BaseViewController {
                 self.view.makeToast(response.message)
             }
         }
-        
+
     }
-    func showAlert(title: String, message: String) {
-        let alertController = UIAlertController(title: title, message: message, preferredStyle: .alert)
-        let okAction = UIAlertAction(title: "OK", style: .default, handler: nil)
-        alertController.addAction(okAction)
-        present(alertController, animated: true, completion: nil)
-    }
+
 }

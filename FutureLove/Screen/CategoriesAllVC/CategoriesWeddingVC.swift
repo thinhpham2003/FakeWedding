@@ -12,6 +12,7 @@ class CategoriesWeddingVC: UIViewController {
     @IBOutlet weak var collectionViewMain: UICollectionView!
     @IBOutlet weak var buttonStart: UIButton!
     @IBOutlet weak var buttonNavigation: UIButton!
+    var menuOptions: [String] = ["List Image Swapped", "Swap Video", "List Video Swapped", "Profile"]
     var listDataCate : [CategoriesModel] = [CategoriesModel]()
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -22,6 +23,62 @@ class CategoriesWeddingVC: UIViewController {
         APIService.shared.listCategoriesAll(){ result, error in
             self.listDataCate = result
             self.collectionViewMain.reloadData()
+        }
+    }
+    @IBAction func Result(){
+        print("Click")
+
+        let alertController = UIAlertController(title: "Select Features", message: nil, preferredStyle: .actionSheet)
+
+        for option in menuOptions {
+            let action = UIAlertAction(title: option, style: .default) { _ in
+                // Xử lý khi người dùng chọn một tính năng
+                self.handleSelectedOption(option)
+            }
+            alertController.addAction(action)
+        }
+
+        let cancelAction = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
+        alertController.addAction(cancelAction)
+
+        present(alertController, animated: true, completion: nil)
+    }
+    func handleSelectedOption(_ option: String) {
+        // Xử lý khi người dùng chọn một tính năng
+        switch option {
+            case "List Image Swapped":
+                // Chuyển đến trang mới cho tính năng 1
+                if let nextViewController = self.storyboard?.instantiateViewController(withIdentifier: "ResultVC") as? ResultVC {
+                    // Present view controller
+                    nextViewController.modalPresentationStyle = .fullScreen
+                    self.present(nextViewController, animated: true, completion: nil)
+                    print("Done")
+                }
+            case "Swap Video":
+                if let nextViewController = self.storyboard?.instantiateViewController(withIdentifier: "DisplayVideoTemplate") as? DisplayVideoTemplate {
+                    // Present view controller
+                    nextViewController.modalPresentationStyle = .fullScreen
+                    self.present(nextViewController, animated: true, completion: nil)
+                    print("Done")
+                }
+            case "List Video Swapped":
+                if let nextViewController = self.storyboard?.instantiateViewController(withIdentifier: "ResultVideoVC") as? ResultVideoVC {
+                    // Present view controller
+                    nextViewController.modalPresentationStyle = .fullScreen
+                    self.present(nextViewController, animated: true, completion: nil)
+                    print("Done")
+                }
+            case "Profile":
+                if let nextViewController = self.storyboard?.instantiateViewController(withIdentifier: "ProfileVC") as? ProfileVC {
+                    // Present view controller
+                    nextViewController.modalPresentationStyle = .fullScreen
+                    self.present(nextViewController, animated: true, completion: nil)
+                    print("Done")
+
+                }
+
+            default:
+                break
         }
     }
 }

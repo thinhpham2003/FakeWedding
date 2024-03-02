@@ -32,6 +32,7 @@ class UploadVC: UIViewController, UIImagePickerControllerDelegate & UINavigation
     var videoSwap: VideoTemplate = VideoTemplate()
     @IBOutlet var btnBack: UIButton!
     @IBOutlet var btnStart: UIButton!
+
     override func viewDidLoad() {
         super.viewDidLoad()
 

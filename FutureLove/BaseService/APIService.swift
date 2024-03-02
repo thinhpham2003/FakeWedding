@@ -227,6 +227,7 @@ class APIService:NSObject {
         if method == .POST {
             if let token_login: String = KeychainWrapper.standard.string(forKey: "token_login"){
                 let headers: Dictionary = [ "Authorization":"Bearer " + token_login]
+                //let headers: Dictionary = ["Link-detail":"https://www.mngdoom.com/"]
                 var request = MultipartFormDataRequest(url: URL(string: url)!)
                 for (key, value) in param {
                     request.addTextField(named: key, value: value)
@@ -258,6 +259,113 @@ class APIService:NSObject {
 
             }
         }
+    }
+
+    func requestAvatar(_ url: String,
+                       _ link1: String,
+                       _ link2: String,
+                       param: ApiParam?,
+                       method: ApiMethod,
+                       loading: Bool,
+                       completion: @escaping ApiCompletion)
+    {
+        let form = MultipartForm(parts: [
+            MultipartForm.Part(name: "link_img", data: "\(link1)".data(using: .utf8)!, filename: nil, contentType: "text/plain"),
+            MultipartForm.Part(name: "check_img", data: "\(link2)".data(using: .utf8)!, filename: nil, contentType: "text/plain")
+        ])
+
+        var request = URLRequest(url: URL(string:url)!)
+        request.httpMethod = "POST"
+        request.setValue(form.contentType, forHTTPHeaderField: "Content-Type")
+
+        if let token_login: String = KeychainWrapper.standard.string(forKey: "token_login") {
+            request.setValue("Bearer " + token_login, forHTTPHeaderField: "Authorization")
+        }
+
+        var result:(message:String, data:Data?) = (message: "Fail", data: nil)
+
+        URLSession.shared.uploadTask(with: request, from: form.bodyData){ (data, response, error) in
+
+            if let error = error {
+                // Error
+            }
+            result.data = data
+            DispatchQueue.main.async {
+                // check for fundamental networking error
+                guard let data = data, error == nil else {
+                    completion(nil, error)
+                    return
+                }
+                // check for http errors
+                if let httpStatus = response as? HTTPURLResponse, httpStatus.statusCode != 200, let res = response {
+                }
+                if let resJson = self.convertToJson(data) {
+                    completion(resJson, nil)
+                }
+                if let resString = String(data: data, encoding: .utf8) {
+                    completion(resString, error)
+                }
+                else {
+                    completion(nil, error)
+                }
+            }
+            // Do something after the upload task is complete
+
+        }.resume()
+    }
+    func requestPass(_ url: String,
+                       _ user_name: String,
+                       _ link1: String,
+                       _ link2: String,
+                       param: ApiParam?,
+                       method: ApiMethod,
+                       loading: Bool,
+                       completion: @escaping ApiCompletion)
+    {
+        let form = MultipartForm(parts: [
+            MultipartForm.Part(name: "email_or_username", data: "\(link1)".data(using: .utf8)!, filename: nil, contentType: "text/plain"),
+            MultipartForm.Part(name: "old_password", data: "\(link1)".data(using: .utf8)!, filename: nil, contentType: "text/plain"),
+            MultipartForm.Part(name: "new_password", data: "\(link2)".data(using: .utf8)!, filename: nil, contentType: "text/plain")
+        ])
+
+        var request = URLRequest(url: URL(string:url)!)
+        request.httpMethod = "POST"
+        request.setValue(form.contentType, forHTTPHeaderField: "Content-Type")
+
+        if let token_login: String = KeychainWrapper.standard.string(forKey: "token_login") {
+            request.setValue("Bearer " + token_login, forHTTPHeaderField: "Authorization")
+        }
+
+        var result:(message:String, data:Data?) = (message: "Fail", data: nil)
+
+        URLSession.shared.uploadTask(with: request, from: form.bodyData){ (data, response, error) in
+
+            if let error = error {
+                // Error
+            }
+            result.data = data
+            DispatchQueue.main.async {
+                // check for fundamental networking error
+                guard let data = data, error == nil else {
+                    completion(nil, error)
+                    return
+                }
+                // check for http errors
+                if let httpStatus = response as? HTTPURLResponse, httpStatus.statusCode != 200, let res = response {
+                }
+                if let resJson = self.convertToJson(data) {
+                    completion(resJson, nil)
+                }
+                if let resString = String(data: data, encoding: .utf8) {
+                    completion(resString, error)
+                }
+                else {
+                    completion(nil, error)
+                }
+            }
+            // Do something after the upload task is complete
+
+        }.resume()
     }
 
     func requestTokenThinhGhepDoi(_ url: String,
@@ -995,7 +1103,6 @@ class APIService:NSObject {
     //https://videoswap.mangasocial.online/getdata/genvideo/swap/imagevid/wedding?device_them_su_kien=Simulator%20%28iPhone%2015%20Pro%29&ip_them_su_kien=14.231.247.224&id_user=236&src_img=/var/www/build_futurelove/image/image_user/236/nam/236_nam_29449.jpg&src_vid_path=1
     //https://videoswap.mangasocial.online/getdata/genvideo/swap/imagevid/wedding?device_them_su_kien=Simulator%20%28iPhone%2015%20Pro%29&ip_them_su_kien=113.178.49.22&id_user=236&src_img=/var/www/build_futurelove/image/image_user/236/nam/236_nam_82930.jpg&src_vid_path=1
     func createVideoWedding(device_them_su_kien:String,id_video:String,ip_them_su_kien:String,id_user:String,link_img:String,closure: @escaping (_ response: SukienSwapVideo?, _ error: Error?) -> Void) {
-        print("Link img: \(link_img)")
         let newString1 = link_img.replacingOccurrences(of: "\"", with: "", options: .literal, range: nil)
         let StringNam = newString1.replacingOccurrences(of: "https://futurelove.online", with: "/var/www/build_futurelove")
 
@@ -1028,6 +1135,41 @@ class APIService:NSObject {
         }
         closure(nil, nil)
     }
+    func ChangeAvatar(id_user:String,link_img:String,closure: @escaping (_ response: KQChangeAvatar?, _ error: Error?) -> Void) {
+        let newString1 = link_img.replacingOccurrences(of: "\"", with: "", options: .literal, range: nil)
+        let StringNam = newString1.replacingOccurrences(of: "/var/www/build_futurelove", with: "https://futurelove.online")
+        
+        print("StringNam")
+        requestAvatar("https://databaseswap.mangasocial.online/changeavatar/\(id_user)", "\(StringNam)", "uploadssss", param: nil, method: .POST, loading: true) { (data, error) in
+            if let data2 = data as? [String:Any]{
+                var returnData: KQChangeAvatar = KQChangeAvatar()
+                returnData = returnData.initLoad(data2)
+                closure(returnData,nil)
+            }else{
+                closure(nil,nil)
+            }
+        }
+        closure(nil, nil)
+
+    }
+    
+    func ChangePass(id_user: Int, user_name: String, old_pass: String, new_pass: String,closure: @escaping (_ response: changePassWordModel?, _ error: Error?) -> Void) {
+//        let newString1 = link_img.replacingOccurrences(of: "\"", with: "", options: .literal, range: nil)
+//        let StringNam = newString1.replacingOccurrences(of: "/var/www/build_futurelove", with: "https://futurelove.online")
+
+        requestPass("https://databaseswap.mangasocial.online/changepassword/\(id_user)", "\(user_name   )","\(old_pass)", "\(new_pass)", param: nil, method: .POST, loading: true) { (data, error) in
+            if let data2 = data as? [String:Any]{
+                var returnData: changePassWordModel = changePassWordModel()
+                returnData = returnData.initLoad(data2)
+                closure(returnData,nil)
+            }else{
+                closure(nil,nil)
+            }
+        }
+        closure(nil, nil)
+
+    }
+
 
 }
 

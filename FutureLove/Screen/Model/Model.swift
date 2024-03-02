@@ -212,3 +212,25 @@ struct ProfileModel: Codable {
     }
 
 }
+
+
+struct KQChangeAvatar: Codable {
+    var link_img: String?
+    mutating func initLoad(_ json:[String:Any]) ->KQChangeAvatar{
+        if let temp = json["link_img"] as? String {link_img = temp}
+        return self
+    }
+
+}
+
+
+struct changePassWordModel: Codable {
+    var id_user: Int?
+    var detail: String?
+    mutating func initLoad(_ json:[String:Any]) ->changePassWordModel{
+        if let temp = json["id_user"] as? Int {id_user = temp}
+        if let temp = json["detail"] as? String {detail = temp}
+        return self
+    }
+
+}
