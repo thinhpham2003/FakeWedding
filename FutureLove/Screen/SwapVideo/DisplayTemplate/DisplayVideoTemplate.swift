@@ -23,6 +23,9 @@ class DisplayVideoTemplate: UIViewController {
         if let buttonback = buttonback {
             buttonback.setTitle("", for: .normal)
         }
+//        if let clv = clvDisplayVideoTemplate {
+//
+//        }
         clvDisplayVideoTemplate.register(UINib(nibName: "CellVideo", bundle: nil), forCellWithReuseIdentifier: "CellVideo")
         APIService.shared.listTemplateVideoSwap { [weak self] videos, error in
             guard let self = self else { return }

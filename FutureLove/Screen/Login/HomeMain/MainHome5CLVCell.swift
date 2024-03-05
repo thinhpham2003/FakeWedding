@@ -17,6 +17,14 @@ class MainHome5CLVCell: UICollectionViewCell {
         self.collectionViewHome.backgroundColor = UIColor.clear
         buttonStart.setTitle("", for: .normal)
     }
+    @IBAction func loadNext(){
+        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+        let vc = storyboard.instantiateViewController(withIdentifier: "LoginViewController") as! LoginViewController
+        vc.modalPresentationStyle = .fullScreen //or .overFullScreen for transparency
+        if let parentVC = self.parentViewController as? HomeViewController{
+            parentVC.present(vc, animated: true, completion: nil)
+        }
+    }
 
 }
 extension MainHome5CLVCell: UICollectionViewDelegate, UICollectionViewDataSource {
