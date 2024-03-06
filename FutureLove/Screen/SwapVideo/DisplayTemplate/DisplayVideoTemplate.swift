@@ -20,6 +20,10 @@ class DisplayVideoTemplate: UIViewController {
     }
     override func viewDidLoad() {
         super.viewDidLoad()
+        if AppConstant.userId == nil {
+            // Nếu chưa đăng nhập, chuyển hướng sang màn hình đăng nhập
+            self.navigationController?.pushViewController(LoginViewController(nibName: "LoginViewController", bundle: nil), animated: true)
+        } 
         if let buttonback = buttonback {
             buttonback.setTitle("", for: .normal)
         }

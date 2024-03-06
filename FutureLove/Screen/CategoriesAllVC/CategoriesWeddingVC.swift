@@ -41,8 +41,16 @@ class CategoriesWeddingVC: UIViewController {
         let cancelAction = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
         alertController.addAction(cancelAction)
 
+        // Cung cấp thông tin vị trí cho alertController
+        if let popoverController = alertController.popoverPresentationController {
+            popoverController.sourceView = self.view  // Thay 'self.view' bằng view bạn muốn
+            popoverController.sourceRect = CGRect(x: self.view.bounds.midX, y: self.view.bounds.midY, width: 0, height: 0) // Thay đổi CGRect này theo ý bạn
+            popoverController.permittedArrowDirections = []  // Có thể thay đổi hướng mũi tên nếu bạn muốn
+        }
+
         present(alertController, animated: true, completion: nil)
     }
+
     func handleSelectedOption(_ option: String) {
         // Xử lý khi người dùng chọn một tính năng
         switch option {
