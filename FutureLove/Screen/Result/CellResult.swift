@@ -2,7 +2,7 @@
 //  CellResult.swift
 //  FutureLove
 //
-]//
+//
 
 import UIKit
 
