@@ -2,7 +2,6 @@
 //  ProfileVC.swift
 //  FutureLove
 //
-//  Created by Phạm Quý Thịnh on 27/02/2024.
 //
 
 
@@ -28,8 +27,8 @@ class ProfileVC: UIViewController, UITableViewDataSource, UITableViewDelegate, U
     @IBOutlet weak var avata: UIImageView!
     var link_avatar = ""
     var user_name = ""
-    let menuItems = ["Accout","Edit Profile"] // Danh sách các mục menu
-    var isDropdownVisible = false // Biến để kiểm tra xem UITableView có đang hiển thị hay không
+    let menuItems = ["Accout","Edit Profile"]
+    var isDropdownVisible = false
     @IBAction func backScreen(){
         self.dismiss(animated: true)
     }
@@ -90,7 +89,7 @@ class ProfileVC: UIViewController, UITableViewDataSource, UITableViewDelegate, U
             }
         }
         else {
-            showAlert(title: "Fail", message: "Vui lòng nhập đúng thông tin mật khẩu mới")
+            showAlert(title: "Fail", message: "Please enter the correct new password")
         }
 
     }
@@ -111,7 +110,6 @@ class ProfileVC: UIViewController, UITableViewDataSource, UITableViewDelegate, U
     }
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
         if let selectedImage = info[UIImagePickerController.InfoKey.originalImage] as? UIImage {
-            // Thay thế ảnh vào ImageView tương ứng
 
             picker.dismiss(animated: true)
 
@@ -152,7 +150,7 @@ class ProfileVC: UIViewController, UITableViewDataSource, UITableViewDelegate, U
             completion(data, nil)
             print("done")
             if let error = error {
-                self.showAlert(title: "Lỗi", message: "Vui lòng tải lên ảnh hợp lệ (Rõ khuôn mặt)")
+                self.showAlert(title: "Fail", message: "Please upload a valid photo (Clear face)")
             }
         }
     }
@@ -164,9 +162,7 @@ class ProfileVC: UIViewController, UITableViewDataSource, UITableViewDelegate, U
     }
 
     @IBAction func dropdownButtonTapped(_ sender: UIButton) {
-        isDropdownVisible.toggle() // Đảo ngược trạng thái hiển thị của UITableView
-
-        // Hiển thị hoặc ẩn UITableView
+        isDropdownVisible.toggle()
         dropdownTableView.isHidden = !isDropdownVisible
     }
     private func configureImageView(_ imageView: UIImageView) {
@@ -194,11 +190,8 @@ class ProfileVC: UIViewController, UITableViewDataSource, UITableViewDelegate, U
     }
 
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        // Cập nhật nội dung của UIButton khi một mục được chọn từ UITableView
         dropdownButton.setTitle(menuItems[indexPath.row], for: .normal)
-        // Ẩn UITableView
         dropdownTableView.isHidden = true
-        // Đặt lại trạng thái của biến isDropdownVisible
         isDropdownVisible = false
 
         if indexPath.row == 0 {

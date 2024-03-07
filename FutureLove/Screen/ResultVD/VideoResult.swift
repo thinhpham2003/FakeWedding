@@ -2,7 +2,6 @@
 //  VideoResult.swift
 //  FutureLove
 //
-//  Created by Phạm Quý Thịnh on 24/02/2024.
 //
 
 import UIKit
@@ -21,7 +20,6 @@ class VideoResult: UIViewController {
 
     }
     func configureCell(with videoURL: URL?) {
-        // Xóa player cũ và các layer liên quan
         let spinner = UIActivityIndicatorView(style: .large)
         spinner.center = view.center
         view.addSubview(spinner)

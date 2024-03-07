@@ -2,7 +2,6 @@
 //  UploadVC.swift
 //  FutureLove
 //
-//  Created by Phạm Quý Thịnh on 23/02/2024.
 //
 
 import UIKit
@@ -59,7 +58,6 @@ class UploadVC: UIViewController, UIImagePickerControllerDelegate & UINavigation
                 } else {
 
                     print("Video created successfully: \(response)")
-                    // Xử lý kết quả video ở đây
 
                     //completion(response, nil)
                     if let response = response {
@@ -251,9 +249,7 @@ class UploadVC: UIViewController, UIImagePickerControllerDelegate & UINavigation
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
         if let mediaType = info[UIImagePickerController.InfoKey.mediaType] as? String {
             if mediaType == "public.image" {
-                // Xử lý khi chọn ảnh
                 if let selectedImage = info[UIImagePickerController.InfoKey.originalImage] as? UIImage {
-                    //Thay thế ảnh vào ImageView tương ứng
                     picker.dismiss(animated: true)
                     self.detectFaces(in: selectedImage)
                     picker.dismiss(animated: true, completion: nil)
@@ -351,7 +347,6 @@ class UploadVC: UIViewController, UIImagePickerControllerDelegate & UINavigation
         self.present(imagePickerController, animated: true, completion: nil)
     }
     func configureCell(with videoURL: URL?) {
-        // Xóa player cũ và các layer liên quan
         let spinner = UIActivityIndicatorView(style: .large)
         spinner.center = view.center
         view.addSubview(spinner)
@@ -381,7 +376,6 @@ class UploadVC: UIViewController, UIImagePickerControllerDelegate & UINavigation
         self.dismiss(animated: true)
     }
 
-    // Phương thức được gọi khi AVPlayer kết thúc việc phát video
     @objc func playerDidFinishPlaying(note: NSNotification) {
         player?.seek(to: CMTime.zero)
         player?.play()

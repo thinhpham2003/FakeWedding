@@ -2,7 +2,6 @@
 //  DisplayVideoTemplate.swift
 //  FutureLove
 //
-//  Created by Phạm Quý Thịnh on 22/02/2024.
 //
 
 import UIKit
@@ -21,15 +20,12 @@ class DisplayVideoTemplate: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         if AppConstant.userId == nil {
-            // Nếu chưa đăng nhập, chuyển hướng sang màn hình đăng nhập
             self.navigationController?.pushViewController(LoginViewController(nibName: "LoginViewController", bundle: nil), animated: true)
         } 
         if let buttonback = buttonback {
             buttonback.setTitle("", for: .normal)
         }
-//        if let clv = clvDisplayVideoTemplate {
-//
-//        }
+
         clvDisplayVideoTemplate.register(UINib(nibName: "CellVideo", bundle: nil), forCellWithReuseIdentifier: "CellVideo")
         APIService.shared.listTemplateVideoSwap { [weak self] videos, error in
             guard let self = self else { return }
@@ -47,7 +43,6 @@ class DisplayVideoTemplate: UIViewController {
     
 
     func getVideoThumbnail(url: URL) -> UIImage? {
-        //let url = url as URL
         print(url)
         spinner.center = view.center
         view.addSubview(spinner)
@@ -89,15 +84,7 @@ extension DisplayVideoTemplate: UICollectionViewDelegate, UICollectionViewDataSo
             cell.imageThump.image = getVideoThumbnail(url: url)
 
         }
-//            if let urlString = video.linkThump, let url = URL(string: urlString) {
-//                URLSession.shared.dataTask(with: url) { (data, response, error) in
-//                    if let data = data, let image = UIImage(data: data) {
-//                        DispatchQueue.main.async {
-//                            cell.imageThump.image = image
-//                        }
-//                    }
-//                }.resume()
-//            }
+
             return cell
     }
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {

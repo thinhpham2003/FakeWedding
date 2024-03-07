@@ -31,7 +31,7 @@ class DetailImageVC: UIViewController {
             URLSession.shared.dataTask(with: url) { (data, response, error) in
                 if let data = data, let image = UIImage(data: data) {
                     DispatchQueue.main.async {
-                        // Kiểm tra xem self.imageBackground có tồn tại không trước khi thiết lập giá trị cho thuộc tính image của nó
+                        
                         if let imageView = self.imageBackground {
                             imageView.image = image
                         }

@@ -2,7 +2,6 @@
 //  CellResultVideo.swift
 //  FutureLove
 //
-//  Created by Phạm Quý Thịnh on 23/02/2024.
 //
 
 import UIKit

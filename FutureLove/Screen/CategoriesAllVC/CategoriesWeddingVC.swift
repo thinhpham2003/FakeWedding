@@ -32,7 +32,6 @@ class CategoriesWeddingVC: UIViewController {
 
         for option in menuOptions {
             let action = UIAlertAction(title: option, style: .default) { _ in
-                // Xử lý khi người dùng chọn một tính năng
                 self.handleSelectedOption(option)
             }
             alertController.addAction(action)
@@ -41,21 +40,18 @@ class CategoriesWeddingVC: UIViewController {
         let cancelAction = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
         alertController.addAction(cancelAction)
 
-        // Cung cấp thông tin vị trí cho alertController
         if let popoverController = alertController.popoverPresentationController {
-            popoverController.sourceView = self.view  // Thay 'self.view' bằng view bạn muốn
-            popoverController.sourceRect = CGRect(x: self.view.bounds.midX, y: self.view.bounds.midY, width: 0, height: 0) // Thay đổi CGRect này theo ý bạn
-            popoverController.permittedArrowDirections = []  // Có thể thay đổi hướng mũi tên nếu bạn muốn
+            popoverController.sourceView = self.view
+            popoverController.sourceRect = CGRect(x: self.view.bounds.midX, y: self.view.bounds.midY, width: 0, height: 0)
+            popoverController.permittedArrowDirections = []
         }
 
         present(alertController, animated: true, completion: nil)
     }
 
     func handleSelectedOption(_ option: String) {
-        // Xử lý khi người dùng chọn một tính năng
         switch option {
             case "List Image Swapped":
-                // Chuyển đến trang mới cho tính năng 1
                 if let nextViewController = self.storyboard?.instantiateViewController(withIdentifier: "ResultVC") as? ResultVC {
                     // Present view controller
                     nextViewController.modalPresentationStyle = .fullScreen

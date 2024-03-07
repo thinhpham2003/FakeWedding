@@ -47,15 +47,12 @@ class MakePhotoWeddingVC: UIViewController, UIImagePickerControllerDelegate, UIN
 
     var menuOptions: [String] = ["List Image Swapped", "Swap Video", "List Video Swapped", "Profile"]
     @objc func showMenu() {
-        // Hiển thị menu chọn tính năng
 
     }
 
     func handleSelectedOption(_ option: String) {
-        // Xử lý khi người dùng chọn một tính năng
         switch option {
             case "List Image Swapped":
-                // Chuyển đến trang mới cho tính năng 1
                         if let nextViewController = self.storyboard?.instantiateViewController(withIdentifier: "ResultVC") as? ResultVC {
                             // Present view controller
                             nextViewController.modalPresentationStyle = .fullScreen
@@ -96,7 +93,6 @@ class MakePhotoWeddingVC: UIViewController, UIImagePickerControllerDelegate, UIN
 
         for option in menuOptions {
             let action = UIAlertAction(title: option, style: .default) { _ in
-                // Xử lý khi người dùng chọn một tính năng
                 self.handleSelectedOption(option)
             }
             alertController.addAction(action)
@@ -105,11 +101,10 @@ class MakePhotoWeddingVC: UIViewController, UIImagePickerControllerDelegate, UIN
         let cancelAction = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
         alertController.addAction(cancelAction)
 
-        // Cung cấp thông tin vị trí cho alertController
         if let popoverController = alertController.popoverPresentationController {
-            popoverController.sourceView = self.view  // Thay 'self.view' bằng view bạn muốn
-            popoverController.sourceRect = CGRect(x: self.view.bounds.midX, y: self.view.bounds.midY, width: 0, height: 0) // Thay đổi CGRect này theo ý bạn
-            popoverController.permittedArrowDirections = []  // Có thể thay đổi hướng mũi tên nếu bạn muốn
+            popoverController.sourceView = self.view
+            popoverController.sourceRect = CGRect(x: self.view.bounds.midX, y: self.view.bounds.midY, width: 0, height: 0)
+            popoverController.permittedArrowDirections = []
         }
 
         present(alertController, animated: true, completion: nil)
@@ -144,12 +139,9 @@ class MakePhotoWeddingVC: UIViewController, UIImagePickerControllerDelegate, UIN
                                                 link_img1: self.linkNam,
                                                 link_img2: self.linkNu,list_folder:self.list_folder) { (response, error) in
             if let error = error {
-                // Xử lý lỗi ở đây
                 print("Error: \(error.localizedDescription)")
             } else {
-                // Xử lý phản hồi thành công ở đây
                 if let linnkswap = response?.link_da_swap {
-                    // Sử dụng storyboard để instantiate view controller
                     if let nextViewController = self.storyboard?.instantiateViewController(withIdentifier: "DetailImageVC") as? DetailImageVC {
                         nextViewController.imageLink = linnkswap
                         // Present view controller
@@ -363,9 +355,7 @@ class MakePhotoWeddingVC: UIViewController, UIImagePickerControllerDelegate, UIN
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
         if let mediaType = info[UIImagePickerController.InfoKey.mediaType] as? String {
             if mediaType == "public.image" {
-                // Xử lý khi chọn ảnh
                 if let selectedImage = info[UIImagePickerController.InfoKey.originalImage] as? UIImage {
-                    //Thay thế ảnh vào ImageView tương ứng
                     picker.dismiss(animated: true)
                     self.detectFaces(in: selectedImage)
                     picker.dismiss(animated: true, completion: nil)

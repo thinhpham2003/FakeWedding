@@ -2,7 +2,6 @@
 //  ResultVC.swift
 //  FutureLove
 //
-//  Created by Phạm Quý Thịnh on 22/02/2024.
 //
 
 import UIKit
