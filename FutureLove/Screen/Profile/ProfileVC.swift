@@ -175,7 +175,34 @@ class ProfileVC: UIViewController, UITableViewDataSource, UITableViewDelegate, U
             imageView.heightAnchor.constraint(equalToConstant: sideLength)
         ])
     }
-
+    @IBAction func handleCloseButtonTapped(_ sender: Any) {
+        if let passwordSend = txtOldPass.text {
+            APIService.shared.RemoveMyAccount(userID: String(AppConstant.userId ?? 0 ), password: passwordSend){response,error in
+                if response.contains("Successfully") == true{ // Successfully deleted account with id = 42
+                    AppConstant.logout()
+                    let alert = UIAlertController(title: "Remove Account", message: response, preferredStyle: .alert)
+                    alert.addAction(UIAlertAction(title: "Okie Signout", style: .default, handler: { action in
+                        switch action.style{
+                            case .default:
+                                self.navigationController?.pushViewController(LoginViewController(nibName: "LoginViewController", bundle: nil), animated: true)
+                                return
+                            case .cancel:
+                                self.navigationController?.pushViewController(LoginViewController(nibName: "LoginViewController", bundle: nil), animated: true)
+                                return
+                            case .destructive:
+                                self.navigationController?.pushViewController(LoginViewController(nibName: "LoginViewController", bundle: nil), animated: true)
+                                return
+                        }
+                    }))
+                    self.present(alert, animated: true, completion: nil)
+                }
+                let alert = UIAlertController(title: "Remove Account", message: response, preferredStyle: UIAlertController.Style.alert)
+                alert.addAction(UIAlertAction(title: "Okie", style: UIAlertAction.Style.default, handler: nil))
+                self.present(alert, animated: true, completion: nil)
+            }
+        }
+        //dismiss(animated: true)
+    }
 
 
 
@@ -202,4 +229,5 @@ class ProfileVC: UIViewController, UITableViewDataSource, UITableViewDelegate, U
             viewProfile.isHidden = false
         }
     }
+
 }

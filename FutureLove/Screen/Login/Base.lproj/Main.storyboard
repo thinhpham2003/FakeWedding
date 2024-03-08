@@ -1609,6 +1609,14 @@
                                                     <action selector="changePass:" destination="pxp-Iy-QEm" eventType="touchUpInside" id="ERV-Bm-njk"/>
                                                 </connections>
                                             </button>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="caj-yT-edW">
+                                                <rect key="frame" x="97" y="349" width="181" height="39"/>
+                                                <state key="normal" title="Button"/>
+                                                <buttonConfiguration key="configuration" style="filled" title="Remove My Account"/>
+                                                <connections>
+                                                    <action selector="handleCloseButtonTapped:" destination="pxp-Iy-QEm" eventType="touchUpInside" id="sv9-eS-a7x"/>
+                                                </connections>
+                                            </button>
                                         </subviews>
                                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                         <constraints>
@@ -1621,11 +1629,13 @@
                                             <constraint firstItem="pgm-T1-3Jn" firstAttribute="top" secondItem="Kcc-mL-3cg" secondAttribute="top" constant="117" id="Yli-EY-sRg"/>
                                             <constraint firstItem="czZ-RA-vqe" firstAttribute="top" secondItem="Kcc-mL-3cg" secondAttribute="top" constant="257" id="ZQa-gt-gOl"/>
                                             <constraint firstItem="4fd-NL-LCy" firstAttribute="top" secondItem="Kcc-mL-3cg" secondAttribute="top" constant="25" id="aV2-Iv-fs0"/>
+                                            <constraint firstItem="caj-yT-edW" firstAttribute="top" secondItem="czZ-RA-vqe" secondAttribute="bottom" constant="-20" id="bQh-ns-y9F"/>
                                             <constraint firstItem="czZ-RA-vqe" firstAttribute="centerX" secondItem="pgm-T1-3Jn" secondAttribute="centerX" id="cQe-uH-0hs"/>
                                             <constraint firstAttribute="trailing" secondItem="y2x-Tk-tPr" secondAttribute="trailing" constant="6" id="d0L-pf-fy9"/>
                                             <constraint firstItem="czZ-RA-vqe" firstAttribute="centerX" secondItem="y2x-Tk-tPr" secondAttribute="centerX" id="tcs-3O-N0E"/>
                                             <constraint firstItem="4fd-NL-LCy" firstAttribute="leading" secondItem="Kcc-mL-3cg" secondAttribute="leading" constant="6" id="wfo-gE-uUJ"/>
                                             <constraint firstItem="pgm-T1-3Jn" firstAttribute="leading" secondItem="Kcc-mL-3cg" secondAttribute="leading" constant="6" id="wsH-Up-NYF"/>
+                                            <constraint firstItem="caj-yT-edW" firstAttribute="leading" secondItem="czZ-RA-vqe" secondAttribute="trailing" constant="-282" id="zEO-RE-xcA"/>
                                         </constraints>
                                     </view>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="aHX-il-UDj">
